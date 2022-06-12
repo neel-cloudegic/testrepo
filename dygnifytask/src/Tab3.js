@@ -1,24 +1,32 @@
+import axios from "axios";
+const Tab3 = ({userdetails,setUserDetails,handlechange}) => {
 
+    const handleSubmit = () => {
+        axios.post("http://localhost:9002/loans",userdetails)
+        .then(res => console.log(res));
+    }
 
-const Tab3 = () => {
 
     return(
-        <form className="fullform" >
-                        <div>
+        <>
+            {console.log(userdetails)}
                             <div>
-                                <input type="text" placeholder="First Name"/>
-                                <input type="text" placeholder="Last Name"/>
+                            <select name="loantype" value={userdetails.loantype} onChange={handlechange}> 
+                                <option >Personal Loan</option>
+                                <option >Auto Loan</option>
+                                <option >Home Loan</option>
+                                <option >Gold Loan</option>
+                                <option >Student Loan</option>
+                            </select>
+                            <input name="loanamt" value={userdetails.loanamt} onChange={handlechange} type="number" placeholder="₹ Loan Amount"/>
                             </div>
                             <div>
-                                <label for="formFile">Identity Proof</label>
-                                <input type="file" id="formFile"/>
-                                </div>
-                            <div>
-                                <label for="formFile">Address Proof</label>
-                                <input type="file" id="formFile"/>
+                                <input name="tenure" value={userdetails.tenure} onChange={handlechange} type="number" placeholder="Tenure"/>
+                                <input name="interest" value={userdetails.interest} onChange={handlechange} type="number" placeholder="Interest (%)"/>
                             </div>
-                        </div>
-                    </form>
+
+                            <button onClick={handleSubmit}>Submit</button>
+                    </>
     );
 }
 

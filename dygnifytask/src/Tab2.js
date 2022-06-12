@@ -1,16 +1,8 @@
-import { useState } from "react";
+const Tab2 = ({userdetails,setUserDetails,handlechange}) => {
 
-const Tab2 = ({userdetails,setUserDetails}) => {
-
-    const handlechange = (e) => {
-        const {name,value} = e.target;
-        setUserDetails({...userdetails,[name]: value})
-        
-    }
 
     return(
-        <form className="fullform" >
-            {console.log(userdetails)}
+        <>
                             <div>
                                 <input name="bname" value={userdetails.bname} onChange={handlechange} type="text" placeholder="Business Name"/>
                                 <input name="domain" value={userdetails.domain} onChange={handlechange} type="text" placeholder="Business Domain"/>
@@ -21,11 +13,11 @@ const Tab2 = ({userdetails,setUserDetails}) => {
                             </div>
                             <div>
                                 <input name="businessemail" value={userdetails.businessemail} onChange={handlechange} type="email" placeholder="Business Email"/>
-                                <input name="gst" value={userdetails.gst} onChange={handlechange} type="number" placeholder="GST Number"/>
+                                <input name="gst" value={userdetails.gst} onChange={handlechange} type="text" placeholder="GST Number"/>
                             </div>
 
                             <button>Save & Next</button>
-                    </form>
+                    </>
     );
 }
 

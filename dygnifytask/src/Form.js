@@ -23,8 +23,16 @@ const Form = () => {
         address: "",
         businessemail: "",
         gst: "",
-
+        loantype: "",
+        loanamt: "",
+        tenure: "",
+        interest: ""
     }) 
+
+    const handlechange = (e) => {
+        const {name,value} = e.target;
+        setUserDetails({...userdetails,[name]: value});
+    }
 
     const handletabs = (e) => {
         document.getElementById(e.target.id).style.borderBottomColor = "#2B2B2B";
@@ -79,10 +87,13 @@ const Form = () => {
                     <button onClick={handletabs} id="btn2" className="tbs tab3">Step 3</button>
                 </div>
                 <div className="actual"> 
+                {console.log(userdetails)}
                     <div className="forming">{title}
-                        {set1 && <Tab1 userdetails={userdetails} setUserDetails={setUserDetails}/>}
-                        {set2 && <Tab2 userdetails={userdetails} setUserDetails={setUserDetails}/>}
-                        {set3 && <Tab3 userdetails={userdetails} setUserDetails={setUserDetails}/>}
+                    <form action="post" className="fullform">
+                        {set1 && <Tab1 userdetails={userdetails} setUserDetails={setUserDetails} handlechange={handlechange}/>}
+                        {set2 && <Tab2 userdetails={userdetails} setUserDetails={setUserDetails} handlechange={handlechange}/>}
+                        {set3 && <Tab3 userdetails={userdetails} setUserDetails={setUserDetails} handlechange={handlechange} />}
+                    </form> 
                     </div>
                 </div>
             </div>

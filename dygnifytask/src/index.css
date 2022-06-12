@@ -221,6 +221,12 @@ input{
   margin: 10px;
 }
 
+select{
+  padding: 8px;
+  width: 30%;
+  margin: 10px;
+}
+
 @media screen and (max-width: 535px){
 
   .tbs{
@@ -231,6 +237,9 @@ input{
     left: 10%;
   }
   input{
+    width: 40%;
+  }
+  select{
     width: 40%;
   }
   
